@@ -1,0 +1,110 @@
+<?php
+
+$viewModel = $this->getViewModel();
+
+?>
+
+
+<div class="title-group">
+<h1>Find model og pris på din reparation</h1>
+Vælg venligst din model og fejl på din enhed nedenfor
+</div>
+
+<div class="product data items" data-mage-init='{"mage/tabs": {"openedState": "active", "animate": {"duration": 100}}}'>
+<div class="tab-group">
+
+<div class="item title green" data-role="collapsible">
+	<a class="switch" href="#tab-all" data-toggle="trigger">Alle brands</a>
+</div>
+
+<?php
+
+$ids = array();
+
+foreach($viewModel->getReparationCollections() as $reparation){
+
+	$ids[] = $reparation['brands_id'];
+	
+}	
+$brandCollections = array();
+
+foreach(array_unique($ids) as $id){
+	$brandCollections[] = $viewModel->getBrandsById($id);
+}
+
+foreach ($brandCollections as $brand) {
+?>	
+<div class="item title" data-role="collapsible">
+	<a class="switch" href="#tab-<?php echo trim($brand->getName()); ?>" data-toggle="trigger">
+		<img src="<?php echo $viewModel->getBrandsMediaUrl() . $brand->getIcon(); ?>" alt="<?php echo $brand->getName(); ?>" />
+	</a>
+</div>
+	
+<?php 
+
+} ?>
+</div>
+
+<div id="tab-all" class="item content" style="display: block;" data-role="content">
+<div class="products products-grid__layout-2 wrapper grid product-columns-4 product-columns-s-2 product-columns-m-2 product-columns-l-3 products-grid">
+<ol class="products list items product-items">
+<?php
+foreach($viewModel->getReparationCollections() as $reparation){
+?>
+<li class="item product product-item">
+<div class="product-item-info" data-container="product-grid">
+<div class="product-grid__image-wrapper">
+	<a class="product photo product-item-photo" tabindex="-1" href="/reparationer/<?php echo $reparation['url_key']; ?>"> 
+		<span class="product-image-container" style="width: 489px;"> 
+			<span class="product-image-wrapper" style="padding-bottom: 100%;"> 
+				<img class="product-image-photo" src="<?php echo $viewModel->getReparationMediaUrl() . $reparation['image']; ?>" alt="" width="489" height="489" data-original="<?php echo $viewModel->getReparationMediaUrl() . $reparation['image']; ?>" data-ox="product"> </span> </span> </a>
+<div class="product-item-inner">
+<div class="product actions product-item-actions">
+<div class="actions-primary">
+<h2><?php echo $reparation['name']; ?></h2>
+<a href="/reparationer/<?php echo $reparation['url_key']; ?>">Se priser</a></div>
+</div>
+</div>
+</div>
+</div>
+</li>
+<?php } ?>
+</ol>
+</div>
+</div>
+
+<!--  -->
+<?php
+foreach ($brandCollections as $brand) {
+
+	$reparationbybrands = $viewModel->getReparationByBrandCollections($brand['brands_id']);
+?>
+<div id="tab-<?php echo trim($brand['name']); ?>" class="item content" style="display: block;" data-role="content">
+<div class="products products-grid__layout-2 wrapper grid product-columns-4 product-columns-s-2 product-columns-m-2 product-columns-l-3 products-grid">
+<ol class="products list items product-items">
+	<?php foreach ($reparationbybrands as $reparationbybrand): ?>
+<li class="item product product-item">
+<div class="product-item-info" data-container="product-grid">
+<div class="product-grid__image-wrapper">
+	<a class="product photo product-item-photo" tabindex="-1" href="/reparationer/<?php echo $reparationbybrand['url_key']; ?>"> 
+		<span class="product-image-container" style="width: 489px;"> 
+			<span class="product-image-wrapper" style="padding-bottom: 100%;"> 
+				<img class="product-image-photo" src="<?php echo $viewModel->getReparationMediaUrl() . $reparationbybrand['image']; ?>" alt="" width="489" height="489" data-original="<?php echo $viewModel->getReparationMediaUrl() . $reparationbybrand['image']; ?>" data-ox="product"> </span> </span> </a>
+	<div class="product-item-inner">
+		<div class="product actions product-item-actions">
+			<div class="actions-primary">
+				<h2><?php echo $reparationbybrand['name']; ?></h2>
+				<a href="/reparationer/<?php echo $reparationbybrand['url_key']; ?>">Se priser</a>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</li>
+<?php endforeach; ?>
+</ol>
+</div>
+</div>
+<?php } ?>
+<!--  -->
+</div>

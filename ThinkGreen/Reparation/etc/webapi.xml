@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+	<route url="/V1/thinkgreen-reparation/reparation" method="POST">
+		<service class="ThinkGreen\Reparation\Api\ReparationRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="ThinkGreen_Reparation::Reparation_save"/>
+		</resources>
+	</route>
+	<route url="/V1/thinkgreen-reparation/reparation/search" method="GET">
+		<service class="ThinkGreen\Reparation\Api\ReparationRepositoryInterface" method="getList"/>
+		<resources>
+			<resource ref="ThinkGreen_Reparation::Reparation_view"/>
+		</resources>
+	</route>
+	<route url="/V1/thinkgreen-reparation/reparation/:reparationId" method="GET">
+		<service class="ThinkGreen\Reparation\Api\ReparationRepositoryInterface" method="get"/>
+		<resources>
+			<resource ref="ThinkGreen_Reparation::Reparation_view"/>
+		</resources>
+	</route>
+	<route url="/V1/thinkgreen-reparation/reparation/:reparationId" method="PUT">
+		<service class="ThinkGreen\Reparation\Api\ReparationRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="ThinkGreen_Reparation::Reparation_update"/>
+		</resources>
+	</route>
+	<route url="/V1/thinkgreen-reparation/reparation/:reparationId" method="DELETE">
+		<service class="ThinkGreen\Reparation\Api\ReparationRepositoryInterface" method="deleteById"/>
+		<resources>
+			<resource ref="ThinkGreen_Reparation::Reparation_delete"/>
+		</resources>
+	</route>
+	<route url="/V1/thinkgreen-reparation/brands" method="POST">
+		<service class="ThinkGreen\Reparation\Api\BrandsRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="ThinkGreen_Reparation::Brands_save"/>
+		</resources>
+	</route>
+	<route url="/V1/thinkgreen-reparation/brands/search" method="GET">
+		<service class="ThinkGreen\Reparation\Api\BrandsRepositoryInterface" method="getList"/>
+		<resources>
+			<resource ref="ThinkGreen_Reparation::Brands_view"/>
+		</resources>
+	</route>
+	<route url="/V1/thinkgreen-reparation/brands/:brandsId" method="GET">
+		<service class="ThinkGreen\Reparation\Api\BrandsRepositoryInterface" method="get"/>
+		<resources>
+			<resource ref="ThinkGreen_Reparation::Brands_view"/>
+		</resources>
+	</route>
+	<route url="/V1/thinkgreen-reparation/brands/:brandsId" method="PUT">
+		<service class="ThinkGreen\Reparation\Api\BrandsRepositoryInterface" method="save"/>
+		<resources>
+			<resource ref="ThinkGreen_Reparation::Brands_update"/>
+		</resources>
+	</route>
+	<route url="/V1/thinkgreen-reparation/brands/:brandsId" method="DELETE">
+		<service class="ThinkGreen\Reparation\Api\BrandsRepositoryInterface" method="deleteById"/>
+		<resources>
+			<resource ref="ThinkGreen_Reparation::Brands_delete"/>
+		</resources>
+	</route>
+</routes>

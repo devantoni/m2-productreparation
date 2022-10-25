@@ -1,0 +1,28 @@
+{
+    "thinkgreen_reparation_reparation": {
+        "column": {
+            "reparation_id": true,
+            "name": true,
+            "short_description": true,
+            "description": true,
+            "image": true,
+            "url_key": true,
+            "brands_id": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    },
+    "thinkgreen_reparation_brands": {
+        "column": {
+            "brands_id": true,
+            "name": true,
+            "category": true,
+            "icon": true,
+            "url_key": true
+        },
+        "constraint": {
+            "PRIMARY": true,
+        }
+    }
+}

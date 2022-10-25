@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<preference for="ThinkGreen\Reparation\Api\ReparationRepositoryInterface" type="ThinkGreen\Reparation\Model\ReparationRepository"/>
+	<preference for="ThinkGreen\Reparation\Api\Data\ReparationInterface" type="ThinkGreen\Reparation\Model\Reparation"/>
+	<preference for="ThinkGreen\Reparation\Api\Data\ReparationSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="ThinkGreen\Reparation\Model\ResourceModel\Reparation\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">thinkgreen_reparation_reparation</argument>
+			<argument name="resourceModel" xsi:type="string">ThinkGreen\Reparation\Model\ResourceModel\Reparation\Collection</argument>
+		</arguments>
+	</virtualType>
+	<type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+		<arguments>
+			<argument name="collections" xsi:type="array">
+				<item name="thinkgreen_reparation_reparation_listing_data_source" xsi:type="string">ThinkGreen\Reparation\Model\ResourceModel\Reparation\Grid\Collection</item>
+				<item name="thinkgreen_reparation_brands_listing_data_source" xsi:type="string">ThinkGreen\Reparation\Model\ResourceModel\Brands\Grid\Collection</item>
+			</argument>
+		</arguments>
+	</type>
+	<preference for="ThinkGreen\Reparation\Api\BrandsRepositoryInterface" type="ThinkGreen\Reparation\Model\BrandsRepository"/>
+	<preference for="ThinkGreen\Reparation\Api\Data\BrandsInterface" type="ThinkGreen\Reparation\Model\Brands"/>
+	<preference for="ThinkGreen\Reparation\Api\Data\BrandsSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+	<virtualType name="ThinkGreen\Reparation\Model\ResourceModel\Brands\Grid\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+		<arguments>
+			<argument name="mainTable" xsi:type="string">thinkgreen_reparation_brands</argument>
+			<argument name="resourceModel" xsi:type="string">ThinkGreen\Reparation\Model\ResourceModel\Brands\Collection</argument>
+		</arguments>
+	</virtualType>
+</config>

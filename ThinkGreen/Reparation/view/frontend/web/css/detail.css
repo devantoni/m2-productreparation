@@ -1,0 +1,27 @@
+main#maincontent {
+    background: #F0F4F1;
+    max-width: 100%;
+    padding: 40px 0px;
+}
+.breadcrumbs {
+    display: none;
+}
+.wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    max-width: 1456px;
+    margin: 0 auto;
+    align-items: center;
+}
+.price table tr th {
+    padding: 40px !important; 
+}
+.price table tr th, .price table tr td {
+    text-align: center;
+    background: #fff;
+    border-color: #f0f4f1;
+    padding: 20px;
+    vertical-align: middle;
+    width: 50% !important;
+}

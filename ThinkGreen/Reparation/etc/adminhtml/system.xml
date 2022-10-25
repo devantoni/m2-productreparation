@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+	<system>
+		<tab id="thinkgreen" translate="label" sortOrder="999">
+			<label>thinkgreen</label>
+		</tab>
+		<section id="reparation" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+			<label>reparation</label>
+			<tab>thinkgreen</tab>
+			<resource>ThinkGreen_Reparation::config_thinkgreen_reparation</resource>
+			<group id="settings" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+				<label>settings</label>
+				<field id="status" type="select" sortOrder="10" showInWebsite="1" showInStore="1" showInDefault="1" translate="label">
+					<label>status</label>
+					<comment/>
+					<source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+				</field>
+			</group>
+		</section>
+	</system>
+</config>

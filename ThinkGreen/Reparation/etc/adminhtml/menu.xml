@@ -1,0 +1,8 @@
+<?xml version="1.0" ?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+	<menu>
+		<add id="ThinkGreen::top_level" title="ThinkGreen" module="ThinkGreen_Reparation" sortOrder="9999" resource="Magento_Backend::content"/>
+		<add id="ThinkGreen_Reparation::thinkgreen_reparation_reparation" title="Reparation" module="ThinkGreen_Reparation" sortOrder="9999" resource="Magento_Backend::content" parent="ThinkGreen::top_level" action="thinkgreen_reparation/reparation/index"/>
+		<add id="ThinkGreen_Reparation::thinkgreen_reparation_brands" title="Brands" module="ThinkGreen_Reparation" sortOrder="9999" resource="Magento_Backend::content" parent="ThinkGreen::top_level" action="thinkgreen_reparation/brands/index"/>
+	</menu>
+</config>

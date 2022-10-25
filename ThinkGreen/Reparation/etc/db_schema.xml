@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+	<table name="thinkgreen_reparation_reparation" resource="default" engine="innodb" comment="thinkgreen_reparation_reparation Table">
+		<column xsi:type="int" name="reparation_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<column xsi:type="int" name="brands_id" padding="10" unsigned="true" nullable="false" identity="false" comment="Brands Id"/>
+
+		<column name="name" nullable="true" xsi:type="text" comment="name"/>
+		<column name="short_description" nullable="true" xsi:type="text" comment="short_description"/>
+		<column name="description" nullable="true" xsi:type="longtext" comment="description"/>
+		<column name="image" nullable="true" xsi:type="text" comment="image"/>
+		<column name="url_key" nullable="true" xsi:type="text" comment="url_key"/>
+
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="reparation_id"/>
+		</constraint>
+
+		<constraint xsi:type="foreign" referenceId="BRANDS_BRANDS_ID_REPARATION_BRANDS_ID" table="thinkgreen_reparation_reparation" column="brands_id" referenceTable="thinkgreen_reparation_brands" referenceColumn="brands_id"/>
+
+	</table>
+	<table name="thinkgreen_reparation_brands" resource="default" engine="innodb" comment="thinkgreen_reparation_brands Table">
+		<column xsi:type="int" name="brands_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id"/>
+		<column name="name" nullable="true" xsi:type="text" comment="name"/>
+		<column name="category" nullable="true" xsi:type="text" comment="category"/>
+		
+		<column name="icon" nullable="true" xsi:type="text" comment="icon"/>
+		<column name="url_key" nullable="true" xsi:type="text" comment="url_key"/>
+
+		<constraint xsi:type="primary" referenceId="PRIMARY">
+			<column name="brands_id"/>
+		</constraint>
+	</table>
+</schema>

@@ -1,0 +1,17 @@
+<?php
+
+$mediapath = $this->getMediaDirectory(); 
+
+$curReparation = $this->getCurrentReparation(); 
+
+ 
+
+?>
+<div class="wrapper">
+<div class="mobile">
+<img src="<?php echo $mediapath.'reparation/image/'.$curReparation->getImage(); ?>">
+</div>
+<div class="price">
+	<?php echo $curReparation->getDescription(); ?>
+</div>
+</div>

@@ -1,0 +1,118 @@
+<?xml version="1.0" ?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+	<argument name="data" xsi:type="array">
+		<item name="js_config" xsi:type="array">
+			<item name="provider" xsi:type="string">thinkgreen_reparation_brands_form.brands_form_data_source</item>
+		</item>
+		<item name="label" xsi:type="string" translate="true">General Information</item>
+		<item name="template" xsi:type="string">templates/form/collapsible</item>
+	</argument>
+	<settings>
+		<buttons>
+			<button name="back" class="ThinkGreen\Reparation\Block\Adminhtml\Brands\Edit\BackButton"/>
+			<button name="delete" class="ThinkGreen\Reparation\Block\Adminhtml\Brands\Edit\DeleteButton"/>
+			<button name="save" class="ThinkGreen\Reparation\Block\Adminhtml\Brands\Edit\SaveButton"/>
+			<button name="save_and_continue" class="ThinkGreen\Reparation\Block\Adminhtml\Brands\Edit\SaveAndContinueButton"/>
+		</buttons>
+		<namespace>thinkgreen_reparation_brands_form</namespace>
+		<dataScope>data</dataScope>
+		<deps>
+			<dep>thinkgreen_reparation_brands_form.brands_form_data_source</dep>
+		</deps>
+	</settings>
+	<dataSource name="brands_form_data_source">
+		<argument name="data" xsi:type="array">
+			<item name="js_config" xsi:type="array">
+				<item name="component" xsi:type="string">Magento_Ui/js/form/provider</item>
+			</item>
+		</argument>
+		<settings>
+			<submitUrl path="*/*/save"/>
+		</settings>
+		<dataProvider name="brands_form_data_source" class="ThinkGreen\Reparation\Model\Brands\DataProvider">
+			<settings>
+				<requestFieldName>brands_id</requestFieldName>
+				<primaryFieldName>brands_id</primaryFieldName>
+			</settings>
+		</dataProvider>
+	</dataSource>
+	<fieldset name="general">
+		<settings>
+			<label>General</label>
+		</settings>
+		<field name="name" formElement="input" sortOrder="50">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">Brands</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">name</label>
+				<dataScope>name</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field>
+		<!-- <field name="category" formElement="input" sortOrder="60">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">Brands</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">category</label>
+				<dataScope>category</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">false</rule>
+				</validation>
+			</settings>
+		</field> -->
+		<!-- <field name="reparation_id">
+            <argument name="data" xsi:type="array">
+                <item name="options" xsi:type="object">ThinkGreen\Reparation\Model\Config\Source\Reparation</item>
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Select Model</item>
+                    <item name="formElement" xsi:type="string">select</item>
+                    <item name="source" xsi:type="string">Reparation</item>
+                </item>
+            </argument>
+        </field> -->
+		<field name="icon" sortOrder="80">
+		    <argument name="data" xsi:type="array">
+		        <item name="config" xsi:type="array">
+		            <item name="dataType" xsi:type="string">string</item>
+		            <item name="source" xsi:type="string">Brands</item>
+		            <item name="label" xsi:type="string" translate="true">Brand Icon</item>
+		            <item name="visible" xsi:type="boolean">true</item>
+		            <item name="formElement" xsi:type="string">fileUploader</item>
+		            <item name="elementTmpl" xsi:type="string">ui/form/element/uploader/uploader</item>
+		            <item name="previewTmpl" xsi:type="string">ThinkGreen_Reparation/image-preview</item>
+		            <item name="required" xsi:type="boolean">false</item>
+		            <item name="sortOrder" xsi:type="number">40</item>
+		            <item name="uploaderConfig" xsi:type="array">
+		                <item name="url" xsi:type="url" path="thinkgreen_reparation/brands/uploader"/>
+		            </item>
+		        </item>
+		    </argument>
+		</field>
+		<field name="url_key" formElement="input" sortOrder="90">
+			<argument name="data" xsi:type="array">
+				<item name="config" xsi:type="array">
+					<item name="source" xsi:type="string">Brands</item>
+				</item>
+			</argument>
+			<settings>
+				<dataType>text</dataType>
+				<label translate="true">Url Key</label>
+				<dataScope>url_key</dataScope>
+				<validation>
+					<rule name="required-entry" xsi:type="boolean">true</rule>
+				</validation>
+			</settings>
+		</field>
+	</fieldset>
+</form>
